@@ -1,0 +1,26 @@
+@import "~normalize.css";
+
+.container {
+    max-width: 1200px;
+    width: 95%;
+    margin: 0 auto;
+}
+
+#task-list {
+    width: 600px;
+    margin: 0 auto;
+}
+
+.list-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn-wrapper {
+    width: 120px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}

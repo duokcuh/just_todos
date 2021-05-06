@@ -1,15 +1,23 @@
-import {Checkbox} from './Checkbox';
-import {Button} from './Button';
+import { Checkbox } from './Checkbox';
+import { Button } from './Button';
+import { DELETE_TASK } from '../changeTasks';
 
-export const ListItem = ( content, isCompleted ) => {
+export const ListItem = ( {title, completed:isCompleted}, id, changeTasks ) => {
   
-  let item = document.createElement('li');
+  const onChange = type => changeTasks({
+    type,
+    payload: id
+  });
+  
+  let item = document.createElement('div');
   item.className = 'list-item';
-  item.innerHTML = `<p>${content}</p>`;
+  
+  item.innerHTML = `<p>${title}</p>`;
   let btnWrapper = document.createElement('div');
   btnWrapper.className = 'btn-wrapper';
   item.append(btnWrapper);
-  btnWrapper.append(Checkbox(isCompleted), Button('Delete'));
+  
+  btnWrapper.append(Checkbox(isCompleted, onChange), Button(DELETE_TASK, onChange));
   
   return item
 }

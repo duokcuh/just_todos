@@ -6,15 +6,25 @@
     margin: 0 auto;
 }
 
-#task-list {
+#task-list,
+.input-section {
     width: 600px;
     margin: 0 auto;
+}
+
+#task-list {
+    counter-reset: task;
 }
 
 .list-item {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.list-item p::before {
+    counter-increment: task;
+    content: counter(task)'. ';
 }
 
 .btn-wrapper {

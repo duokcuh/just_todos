@@ -1,17 +1,21 @@
 import { ListItem } from './ListItem';
+import { changeTasks } from '../changeTasks';
+import { InputSection } from './InputSection';
 
 
 export const List = tasks => {
   
-  const root = document.getElementById('root');
+  const onChange = action => List(changeTasks(tasks, action));
   
   tasks.sort((a, b) => a.completed - b.completed);
-  console.log(tasks);
-  const list = document.createElement('ol');
-  list.id = 'task-list';
-  tasks.forEach(elem => list.append(ListItem(elem.title, elem.completed)));
   
-  root.append(list)
+  const list = document.createElement('section');
+  list.id = 'task-list';
+  tasks.forEach((elem, id) => list.append(ListItem(elem, id, onChange)));
+  
+  const root = document.getElementById('root');
+  root.innerHTML = '';
+  root.append(list, InputSection(onChange));
   
   return list
 }

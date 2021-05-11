@@ -2,7 +2,7 @@ export const CHANGE_TASK = 'Change';
 export const DELETE_TASK = 'Delete';
 export const ADD_TASK = 'Add task';
 
-export const changeTasks = (tasks, action) => {
+export const changeTasks = ( tasks, action ) => {
   
   switch (action.type) {
     

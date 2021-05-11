@@ -32,7 +32,7 @@ export const getTasks = async ( url, _limit = 10 ) => {
     return { title, completed }
   })
   
-  console.log(clearTasks);
+  console.log('Server tasks: ', clearTasks);
   
   return clearTasks
 }
